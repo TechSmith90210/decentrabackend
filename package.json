@@ -1,11 +1,12 @@
 {
   "name": "decentrabackend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc",
-    "install-ffmpeg": "bash render-build.sh"
+    "start": "node dist/index.js", 
+    "build": "tsc",                 
+    "install-ffmpeg": "bash render-build.sh",  
+    "postinstall": "npm run install-ffmpeg" 
   },
   "keywords": [],
   "author": "",
