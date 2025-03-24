@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js", 
-    "build": "tsc",                 
-    "install-ffmpeg": "bash render-build.sh",  
-    "postinstall": "npm run install-ffmpeg" 
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "install-ffmpeg": "bash render-build.sh",
+    "postinstall": "npm run install-ffmpeg"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
     "@types/express": "^5.0.1",
     "@types/fluent-ffmpeg": "^2.1.27",
     "@types/multer": "^1.4.12",
-    "@types/node": "^22.13.13"
+    "@types/node": "^22.13.13",
+    "typescript": "^5.8.2"
   }
 }

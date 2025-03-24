@@ -8,6 +8,6 @@
     "esModuleInterop": true,       // Ensures compatibility with CommonJS modules
     "skipLibCheck": true           // Skips type checking of declaration files for faster compilation
   },
-  "include": ["src/**/*"],          // Include all files under the src directory
+  "include": ["src/**/*", "index.ts"],          // Include all files under the src directory
   "exclude": ["node_modules", "output"]  // Exclude the node_modules and output directories
 }
