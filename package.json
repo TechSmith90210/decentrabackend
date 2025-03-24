@@ -1,0 +1,31 @@
+{
+  "name": "decentrabackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "install-ffmpeg": "bash render-build.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "form-data": "^4.0.2",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.5-lts.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/fluent-ffmpeg": "^2.1.27",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.13.13"
+  }
+}

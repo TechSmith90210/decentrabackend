@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+dist/
+build/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Hardhat / Truffle build artifacts
+artifacts/
+cache/
+
+# Coverage directory for testing
+coverage/
+
+# Dependency directories (if using other package managers)
+.pnp/
+.pnp.js
+
+# Build files
+*.out
+*.bin
+*.swp
+*.tgz
+
+/something
+/output
