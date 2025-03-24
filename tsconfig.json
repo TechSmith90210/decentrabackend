@@ -3,7 +3,7 @@
     "target": "ES6",               // Keeps your code compatible with ES6
     "module": "CommonJS",          // Use CommonJS modules for Node.js compatibility
     "outDir": "./dist",            // Output the compiled files to the dist folder
-    "rootDir": "./src",            // Specify the root directory for source files
+    "rootDir": "./",               // Specify the root directory for source files
     "strict": true,                // Enables all strict type-checking options
     "esModuleInterop": true,       // Ensures compatibility with CommonJS modules
     "skipLibCheck": true           // Skips type checking of declaration files for faster compilation
