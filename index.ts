@@ -5,9 +5,18 @@ import path from "path";
 import fs from "fs";
 import axios from "axios";
 import "dotenv/config";
+import cors from "cors";  // Import cors package
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Enable CORS for all routes
+app.use(cors());  // This will allow all origins by default
+
+// Alternatively, you can configure it to only allow specific origins like this:
+// app.use(cors({
+//   origin: ['https://your-frontend-url.com'],
+// }));
 
 // Ensure FFmpeg is installed
 ffmpeg.setFfmpegPath("ffmpeg");
@@ -74,8 +83,8 @@ const transcodeVideo = async (
                 const outputFilePath = path.join(outputFolder, outputFileName);
 
                 ffmpeg(inputFile)
-                    .outputOptions([
-                        `-vf scale=${size}`,
+                    .outputOptions([ 
+                        `-vf scale=${size}`, 
                         `-b:v ${bitrate}`,
                         "-c:v libx264",
                         "-preset veryfast",
@@ -104,7 +113,6 @@ const transcodeVideo = async (
 
     return transcodedFiles;
 };
-
 
 // Function to upload a file to Pinata
 const uploadToPinata = async (filePath: string): Promise<string> => {
