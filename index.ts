@@ -57,7 +57,6 @@ const getVideoResolution = (filePath: string): Promise<number> => {
     });
 };
 
-// Function to transcode video
 const transcodeVideo = async (
     inputFile: string,
     outputFolder: string,
@@ -74,14 +73,14 @@ const transcodeVideo = async (
 
     const transcodedFiles: { name: string; path: string }[] = [];
 
-    await Promise.all(
-        availableResolutions.map(({ name, size, bitrate }) => {
-            return new Promise<void>((resolve, reject) => {
-                // Create a unique filename using the resolution and current timestamp
-                const timestamp = Date.now();
-                const outputFileName = `video_${name}_${timestamp}.mp4`;
-                const outputFilePath = path.join(outputFolder, outputFileName);
+    for (const { name, size, bitrate } of availableResolutions) {
+        try {
+            // Create a unique filename
+            const timestamp = Date.now();
+            const outputFileName = `video_${name}_${timestamp}.mp4`;
+            const outputFilePath = path.join(outputFolder, outputFileName);
 
+            await new Promise<void>((resolve, reject) => {
                 ffmpeg(inputFile)
                     .outputOptions([ 
                         `-vf scale=${size}`, 
@@ -108,11 +107,16 @@ const transcodeVideo = async (
                     })
                     .run();
             });
-        })
-    );
+
+        } catch (error) {
+            const errorMessage = (error as Error).message;
+            console.error(`⚠️ Skipping ${name} due to error: ${errorMessage}`);
+        }
+    }
 
     return transcodedFiles;
 };
+
 
 // Function to upload a file to Pinata
 const uploadToPinata = async (filePath: string): Promise<string> => {
